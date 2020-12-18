@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { DrizmLinearComponent } from './loader.component';
+import { LinearComponent } from './loader.component';
 
 describe('NgLoaderComponent', () => {
-  let component: DrizmLinearComponent;
-  let fixture: ComponentFixture<DrizmLinearComponent>;
+  let component: LinearComponent;
+  let fixture: ComponentFixture<LinearComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ DrizmLinearComponent ]
+      declarations: [ LinearComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(DrizmLinearComponent);
+    fixture = TestBed.createComponent(LinearComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

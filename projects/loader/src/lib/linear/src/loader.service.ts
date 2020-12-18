@@ -7,7 +7,7 @@ import {LoaderConfig} from './loader.models';
 @Injectable({
   providedIn: 'root'
 })
-export class DrizmLoaderService {
+export class LoaderService {
   private readonly isLoading$ = new BehaviorSubject<boolean>(false);
   private loadingCount = 0;
 

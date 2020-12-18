@@ -1,7 +1,7 @@
 import {Inject, Injectable} from '@angular/core';
 import {HttpRequest, HttpHandler, HttpEvent, HttpInterceptor} from '@angular/common/http';
 import {Observable} from 'rxjs';
-import {DrizmLoaderService} from './loader.service';
+import {LoaderService} from './loader.service';
 import {finalize} from 'rxjs/operators';
 import {LOADING_OPTIONS} from './loader-options';
 import {LoaderConfig} from './loader.models';
@@ -10,7 +10,7 @@ import {LoaderConfig} from './loader.models';
 @Injectable()
 export class LoadingInterceptor implements HttpInterceptor {
 
-  constructor(private loading: DrizmLoaderService,
+  constructor(private loading: LoaderService,
               @Inject(LOADING_OPTIONS) private config: LoaderConfig) {
   }
 

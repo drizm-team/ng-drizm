@@ -1,24 +1,78 @@
-# Loader
+# @drizm/loader
 
-This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.0.4.
+A material design loading indicator for Angular.
 
-## Code scaffolding
+## Features
+- Listens to Angular's Router navigation events by default
+- Listens to all XHR requests by default
+- both above features can be easily disabled when importing `LoaderModule`
+- Provides the option to add custom loading behavior via `LoaderService`
 
-Run `ng generate component component-name --project loader` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module --project linear-loader`.
-> Note: Don't forget to add `--project loader` or else it will be added to the default project in your `angular.json` file. 
+## Installation
+```shell
+npm install @drizm/loader
+```
 
-## Build
+## Usage
+Import `LoaderModule` into your root module (probably AppModule):
+```typescript
+import { NgModule } from '@angular/core';
+import { LoaderModule } from '@drizm/loader/linear';
 
-Run `ng build loader` to build the project. The build artifacts will be stored in the `dist/` directory.
+@NgModule({
+  imports: [
+    // ...
+    LoaderModule.forRoot()
+  ]
+})
+export class AppModule { }
+```
 
-## Publishing
+You can also provide custom configuration to the module (the values inserted in this example are the defaults):
+```typescript
+import { NgModule } from '@angular/core';
+import { LoaderModule } from '@drizm/loader/linear';
 
-After building your library with `ng build loader`, go to the dist folder `cd dist/linear-loader` and run `npm publish`.
+@NgModule({
+  imports: [
+    // ...
+    LoaderModule.forRoot({
 
-## Running unit tests
+        // Whether to show the loader during Router navigation
+        navigationLoader: true,
 
-Run `ng test loader` to execute the unit tests via [Karma](https://karma-runner.github.io).
+        // Whether to show the loader for pending XHR requests
+        xhrLoader: true,
 
-## Further help
+        // How long should the service wait before showing the loader (in ms)
+        wait: 150
+    })
+  ]
+})
+export class AppModule { }
+```
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+You also need to add the component selector to your root component template (app.component.html):
+```html
+<drizm-loader-linear></drizm-loader-linear>
+<router-outlet></router-outlet>
+```
+
+You can provide custom behavior to the loader by using the `LoaderService`:
+```typescript
+import {OnInit} from '@angular/core';
+import {of} from "rxjs";
+ import {delay} from "rxjs/operators";
+import { LoaderService } from '@drizm/loader/linear';
+
+export class AppComponent implements OnInit {
+  constructor(private loader: LoaderService) {}
+
+  ngOnInit(): void {
+    this.loader.add();
+    const obs$ = of(null).pipe(delay(1000));
+    
+    obs$.subscribe(() => this.loader.subtract());
+  }
+}
+```

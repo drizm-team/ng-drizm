@@ -1,6 +1,6 @@
 import {CUSTOM_ELEMENTS_SCHEMA, ModuleWithProviders, NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
-import {DrizmLinearComponent} from './loader.component';
+import {LinearComponent} from './loader.component';
 import '@material/mwc-linear-progress';
 import {HTTP_INTERCEPTORS} from '@angular/common/http';
 import {LoadingInterceptor} from './loader.interceptor';
@@ -10,7 +10,7 @@ import {LoaderConfig} from './loader.models';
 
 @NgModule({
   declarations: [
-    DrizmLinearComponent
+    LinearComponent
   ],
   imports: [
     CommonModule
@@ -23,17 +23,17 @@ import {LoaderConfig} from './loader.models';
     }
   ],
   exports: [
-    DrizmLinearComponent
+    LinearComponent
   ],
   schemas: [
     // Added so Angular doesn't throw errors for mwc-linear-progress which is not an Angular component
     CUSTOM_ELEMENTS_SCHEMA
   ]
 })
-export class DrizmLoaderModule {
-  static forRoot(config?: LoaderConfig): ModuleWithProviders<DrizmLoaderModule> {
+export class LoaderModule {
+  static forRoot(config?: LoaderConfig): ModuleWithProviders<LoaderModule> {
     return {
-      ngModule: DrizmLoaderModule,
+      ngModule: LoaderModule,
       providers: [{
         provide: LOADING_OPTIONS,
         useValue: {

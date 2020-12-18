@@ -1,5 +1,5 @@
 import {ChangeDetectionStrategy, Component, Inject, OnDestroy, OnInit, ViewEncapsulation} from '@angular/core';
-import {DrizmLoaderService} from './loader.service';
+import {LoaderService} from './loader.service';
 import {Observable, Subscription} from 'rxjs';
 import {filter} from 'rxjs/operators';
 import {NavigationCancel, NavigationEnd, NavigationError, NavigationStart, Router} from '@angular/router';
@@ -31,10 +31,10 @@ import {LoaderConfig} from './loader.models';
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class DrizmLinearComponent implements OnInit, OnDestroy {
+export class LinearComponent implements OnInit, OnDestroy {
   private routerSub!: Subscription;
 
-  constructor(private loading: DrizmLoaderService,
+  constructor(private loading: LoaderService,
               private router: Router,
               @Inject(LOADING_OPTIONS) private config: LoaderConfig) {
   }
