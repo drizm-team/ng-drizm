@@ -17,7 +17,7 @@ npm install @drizm/loader
 Import `LoaderModule` into your root module (probably AppModule):
 ```typescript
 import { NgModule } from '@angular/core';
-import { LoaderModule } from '@drizm/loader/linear';
+import { LoaderModule } from '@drizm/loader';
 
 @NgModule({
   imports: [
@@ -31,7 +31,7 @@ export class AppModule { }
 You can also provide custom configuration to the module (the values inserted in this example are the defaults):
 ```typescript
 import { NgModule } from '@angular/core';
-import { LoaderModule } from '@drizm/loader/linear';
+import { LoaderModule } from '@drizm/loader';
 
 @NgModule({
   imports: [
@@ -63,7 +63,7 @@ You can provide custom behavior to the loader by using the `LoaderService`:
 import { OnInit } from '@angular/core';
 import { of } from "rxjs";
 import { delay } from "rxjs/operators";
-import { LoaderService } from '@drizm/loader/linear';
+import { LoaderService } from '@drizm/loader';
 
 export class AppComponent implements OnInit {
   constructor(private loader: LoaderService) {}
