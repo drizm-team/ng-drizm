@@ -76,3 +76,11 @@ export class AppComponent implements OnInit {
   }
 }
 ```
+
+To override the default loader theme, use css variables:
+```css
+drizm-loader-linear {
+  --dzm-primary: pink;
+  --dzm-buffer: skyblue;
+}
+```
