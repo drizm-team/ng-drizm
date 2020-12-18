@@ -60,9 +60,9 @@ You also need to add the component selector to your root component template (app
 
 You can provide custom behavior to the loader by using the `LoaderService`:
 ```typescript
-import {OnInit} from '@angular/core';
-import {of} from "rxjs";
- import {delay} from "rxjs/operators";
+import { OnInit } from '@angular/core';
+import { of } from "rxjs";
+import { delay } from "rxjs/operators";
 import { LoaderService } from '@drizm/loader/linear';
 
 export class AppComponent implements OnInit {
