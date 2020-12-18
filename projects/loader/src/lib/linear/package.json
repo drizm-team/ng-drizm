@@ -1,0 +1,11 @@
+{
+  "ngPackage": {
+    "lib": {
+      "entryFile": "public-api.ts",
+      "cssUrl": "inline"
+    }
+  },
+  "peerDependencies": {
+    "@material/mwc-linear-progress": "^0.20.0"
+  }
+}
