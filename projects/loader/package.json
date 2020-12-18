@@ -1,7 +1,7 @@
 {
   "name": "@drizm/loader",
   "description": "A material design loading indicator for Angular.",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "license": "MIT",
   "private": false,
   "homepage": "https://github.com/drizm-team/ng-drizm/tree/master/projects/loader",
@@ -9,6 +9,16 @@
     "type": "git",
     "url": "https://github.com/drizm-team/ng-drizm/tree/master/projects/loader"
   },
+  "keywords": [
+    "Angular",
+    "loading",
+    "loader",
+    "drizm",
+    "progress",
+    "indicator",
+    "linear",
+    "angular11"
+  ],
   "peerDependencies": {
     "@angular/common": "^11.0.4",
     "@angular/core": "^11.0.4"

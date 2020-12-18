@@ -15,6 +15,8 @@ import {LoaderConfig} from './loader.models';
     </mwc-linear-progress>`,
   styles: [`
     :host {
+      --dzm-primary: #0d7377;
+      --dzm-buffer: #7ebde3;
       position: absolute;
       top: 0;
       left: 0;
@@ -23,12 +25,9 @@ import {LoaderConfig} from './loader.models';
     }
 
     .drizm-loader_linear {
-      --dzm-primary: pink;
-      --dzm-buffer: skyblue;
       --mdc-theme-primary: var(--dzm-primary);
       --mdc-linear-progress-buffer-color: var(--dzm-buffer);
     }`],
-  encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class LinearComponent implements OnInit, OnDestroy {
