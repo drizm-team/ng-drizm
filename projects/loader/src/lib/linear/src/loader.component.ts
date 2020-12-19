@@ -1,36 +1,70 @@
-import {ChangeDetectionStrategy, Component, Inject, OnDestroy, OnInit, ViewEncapsulation} from '@angular/core';
+import {ChangeDetectionStrategy, Component, Inject, Input, OnDestroy, OnInit} from '@angular/core';
 import {LoaderService} from './loader.service';
 import {Observable, Subscription} from 'rxjs';
 import {filter} from 'rxjs/operators';
 import {NavigationCancel, NavigationEnd, NavigationError, NavigationStart, Router} from '@angular/router';
 import {LOADING_OPTIONS} from './loader-options';
 import {LoaderConfig} from './loader.models';
+import {animate, keyframes, state, style, transition, trigger} from '@angular/animations';
 
 
-// noinspection CssUnresolvedCustomProperty
 @Component({
   selector: 'drizm-loader-linear',
-  template: `
-    <mwc-linear-progress class="drizm-loader_linear" #linearProgressEl *ngIf="loading$ | async" indeterminate>
-    </mwc-linear-progress>`,
-  styles: [`
-    :host {
-      --dzm-primary: #0d7377;
-      --dzm-buffer: #7ebde3;
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      z-index: 99999;
-    }
-
-    .drizm-loader_linear {
-      --mdc-theme-primary: var(--dzm-primary);
-      --mdc-linear-progress-buffer-color: var(--dzm-buffer);
-    }`],
+  templateUrl: `./loader.component.html`,
+  styleUrls: ['./loader.component.scss'],
+  animations: [
+    trigger('indeterminate', [
+      state('start', style({
+        left: '100%'
+      })),
+      state('end', style({
+        left: '100%'
+      })),
+      transition('* => *', [
+        animate('900ms cubic-bezier(0, .4, .3, 0)', keyframes([
+          style({
+            left: '-15%',
+            width: '15%'
+          }),
+          style({
+            left: 0,
+            width: '15%'
+          }),
+          style({
+            left: '50%',
+            width: '25%'
+          }),
+          style({
+            left: '85%',
+            width: '15%'
+          }),
+          style({
+            left: '92.5%',
+            width: '15%'
+          }),
+          style({
+            left: '100%',
+            width: '15%'
+          })
+        ]))
+      ])
+    ])
+  ],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class LinearComponent implements OnInit, OnDestroy {
+ // TODO implement determinate loader
+  /**
+   * Whether the loader should be indeterminate
+   * @example
+   * <drizm-loader-linear indeterminate></drizm-loader-linear>
+   */
+    // @Input() indeterminate?: '';
+  private indeterminate = '';
+
+  /** Internal property */
+  state?: 'start' | 'end' = 'start';
+  /** Internal property */
   private routerSub!: Subscription;
 
   constructor(private loading: LoaderService,
@@ -39,6 +73,10 @@ export class LinearComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
+    if (this.indeterminate === '') {
+      this.state = 'start';
+    }
+
     if (this.config.navigationLoader) {
       this.routerSub = this.router.events
         .pipe(filter(e => {
@@ -60,6 +98,14 @@ export class LinearComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     if (this.config.navigationLoader) {
       this.routerSub.unsubscribe();
+    }
+  }
+
+  onDone(): void {
+    if (this.indeterminate === '') {
+      this.state = this.state === 'start'
+        ? 'end'
+        : 'start';
     }
   }
 

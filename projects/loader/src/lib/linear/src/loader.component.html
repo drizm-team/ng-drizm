@@ -1,0 +1,8 @@
+<div class="loader" aria-hidden="true" *ngIf="loading$ | async">
+  <div
+    [@indeterminate]="state"
+    (@indeterminate.done)="onDone()"
+    class="loader-progress"
+    aria-hidden="true">
+  </div>
+</div>
