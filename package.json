@@ -1,6 +1,8 @@
 {
-  "name": "drizm-lib",
+  "name": "ng-drizm",
   "version": "0.0.0",
+  "description": "A collection of Drizm Angular libraries.",
+  "license": "MIT",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
