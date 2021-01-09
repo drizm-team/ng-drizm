@@ -24,6 +24,15 @@
       "@drizm/loader": [
         "dist/loader/*",
         "dist/loader"
+      ],
+
+      "@drizm/utils/*": [
+        "projects/utils/*",
+        "projects/utils"
+      ],
+      "@drizm/utils": [
+        "dist/utils/*",
+        "dist/utils"
       ]
     }
   }
