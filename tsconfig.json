@@ -17,6 +17,7 @@
       "dom"
     ],
     "paths": {
+
       "@drizm/loader/*": [
         "projects/loader/*",
         "projects/loader"
@@ -33,7 +34,17 @@
       "@drizm/utils": [
         "dist/utils/*",
         "dist/utils"
+      ],
+
+      "@drizm/buttons/*": [
+        "projects/buttons/*",
+        "projects/buttons"
+      ],
+      "@drizm/buttons": [
+        "dist/buttons/*",
+        "dist/buttons"
       ]
+
     }
   }
 }

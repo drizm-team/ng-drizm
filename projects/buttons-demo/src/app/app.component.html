@@ -1,0 +1,30 @@
+<div class="background">
+  <div class="wrapper">
+    <div class="btns">
+      <dzm-button type="button" primary (click)="log('primary clicked')">
+        <span>Primary btn</span>
+      </dzm-button>
+
+      <dzm-button type="button" primary outline (click)="log('primary outline clicked')">
+        Primary outline
+      </dzm-button>
+
+      <dzm-button type="button" [disabled]="true" primary (click)="log('primary disabled clicked')">
+        Primary Disabled
+      </dzm-button>
+    </div>
+
+    <div class="btns">
+      <dzm-button type="button" [content]="content" secondary (click)="log('secondary clicked')">
+      </dzm-button>
+
+      <dzm-button type="button" secondary outline (click)="log('secondary outline clicked')">
+        <span>Secondary outline</span>
+      </dzm-button>
+
+      <dzm-button type="button" [disabled]="true" secondary (click)="log('secondary disabled clicked')">
+        <span>Secondary disabled</span>
+      </dzm-button>
+    </div>
+  </div>
+</div>

@@ -3,6 +3,7 @@
   "description": "Useful utility functions for building projects with TypeScript",
   "version": "1.0.0",
   "license": "MIT",
+  "private": false,
   "homepage": "https://github.com/drizm-team/ng-drizm/tree/master/projects/utils",
   "repository": {
     "type": "git",
