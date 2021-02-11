@@ -1,3 +1,5 @@
+// TODO: Icon buttons
+
 // -- DEFAULT VARIABLES -- //
 :root {
   --dbtn-color-primary: #0d7377;
@@ -110,6 +112,26 @@
   }
 }
 
+@mixin roundedBtn($color, $bgColor, $hoverBgColor, $activeBgColor) {
+  @include baseBtn($color);
+  background-color: $bgColor;
+  border-radius: var(--dbtn-radius-huge);
+
+  &:hover:not([disabled]) {
+    color: white;
+    background-color: $hoverBgColor;
+  }
+
+  &:focus, &:active, &:active:focus {
+    color: white;
+    background-color: $activeBgColor;
+  }
+
+  &[disabled] {
+    background-color: var(--dbtn-bg-disabled);
+  }
+}
+
 @mixin textBtn($color, $hoverColor, $activeColor) {
   @include baseBtn($color);
 
@@ -127,7 +149,7 @@
 // -- BUTTONS -- //
 
 // - PRIMARY - //
-.dbtn-primary:not(.dbtn-outline):not(.dbtn-text) {
+.dbtn-primary:not(.dbtn-outline):not(.dbtn-text):not(.dbtn-rounded) {
   @include mainBtn(var(--dbtn-text-primary-main), var(--dbtn-color-primary), var(--dbtn-hover-primary), var(--dbtn-active-primary));
 }
 
@@ -135,21 +157,17 @@
   @include outlineBtn(var(--dbtn-color-primary), var(--dbtn-hover-primary));
 }
 
+.dbtn-primary.dbtn-rounded {
+  @include roundedBtn(var(--dbtn-text-primary-main), var(--dbtn-color-primary), var(--dbtn-hover-primary), var(--dbtn-active-primary));
+}
+
 .dbtn-primary.dbtn-text {
   @include textBtn(var(--dbtn-color-primary), var(--dbtn-hover-primary), var(--dbtn-active-primary));
 }
-
-// TODO
-//.dzm-btn_primary__rounded {
-//  @extend .dbtn_primary;
-//  display: inline-flex;
-//  align-items: center;
-//  padding: 0 1rem;
-//  border-radius: 17px;
-//}
+// -
 
 // - SECONDARY - //
-.dbtn-secondary:not(.dbtn-outline):not(.dbtn-text) {
+.dbtn-secondary:not(.dbtn-outline):not(.dbtn-text):not(.dbtn-rounded) {
   @include mainBtn(var(--dbtn-text-secondary-main), var(--dbtn-color-secondary), var(--dbtn-hover-secondary), var(--dbtn-active-secondary));
 }
 
@@ -157,25 +175,17 @@
   @include outlineBtn(var(--dbtn-color-secondary), var(--dbtn-hover-secondary));
 }
 
+.dbtn-secondary.dbtn-rounded {
+  @include roundedBtn(var(--dbtn-text-secondary-main), var(--dbtn-color-secondary), var(--dbtn-hover-secondary), var(--dbtn-active-secondary));
+}
+
 .dbtn-secondary.dbtn-text {
   @include textBtn(var(--dbtn-color-secondary), var(--dbtn-hover-secondary), var(--dbtn-active-secondary));
 }
-
-// - DANGER - //
-.dbtn-danger:not(.dbtn-outline):not(.dbtn-text) {
-  @include mainBtn(var(--dbtn-text-danger-main), var(--dbtn-color-danger), var(--dbtn-hover-danger), var(--dbtn-active-danger));
-}
-
-.dbtn-danger.dbtn-outline {
-  @include outlineBtn(var(--dbtn-color-danger), var(--dbtn-hover-danger));
-}
-
-.dbtn-danger.dbtn-text {
-  @include textBtn(var(--dbtn-color-danger), var(--dbtn-hover-danger), var(--dbtn-active-danger));
-}
+// -
 
 // -- ACCENT -- //
-.dbtn-accent:not(.dbtn-outline):not(.dbtn-text) {
+.dbtn-accent:not(.dbtn-outline):not(.dbtn-text):not(.dbtn-rounded) {
   @include mainBtn(var(--dbtn-text-accent-main), var(--dbtn-color-accent), var(--dbtn-hover-accent), var(--dbtn-active-accent));
 }
 
@@ -183,18 +193,29 @@
   @include outlineBtn(var(--dbtn-color-accent), var(--dbtn-hover-accent));
 }
 
+.dbtn-accent.dbtn-rounded {
+  @include roundedBtn(var(--dbtn-text-accent-main), var(--dbtn-color-accent), var(--dbtn-hover-accent), var(--dbtn-active-accent));
+}
+
 .dbtn-accent.dbtn-text {
   @include textBtn(var(--dbtn-color-accent), var(--dbtn-hover-accent), var(--dbtn-active-accent));
 }
+// -
 
-// TODO
-//// - ICON - //
-//.dzm-btn__icon {
-//  @extend .__dbtn-base__;
-//  min-width: 1rem;
-//  min-height: 1rem;
-//  background: none;
-//  padding: 0;
-//}
-//
-// -- -- //
+// - DANGER - //
+.dbtn-danger:not(.dbtn-outline):not(.dbtn-text):not(.dbtn-rounded) {
+  @include mainBtn(var(--dbtn-text-danger-main), var(--dbtn-color-danger), var(--dbtn-hover-danger), var(--dbtn-active-danger));
+}
+
+.dbtn-danger.dbtn-outline {
+  @include outlineBtn(var(--dbtn-color-danger), var(--dbtn-hover-danger));
+}
+
+.dbtn-danger.dbtn-rounded {
+  @include roundedBtn(var(--dbtn-text-danger-main), var(--dbtn-color-danger), var(--dbtn-hover-danger), var(--dbtn-active-danger));
+}
+
+.dbtn-danger.dbtn-text {
+  @include textBtn(var(--dbtn-color-danger), var(--dbtn-hover-danger), var(--dbtn-active-danger));
+}
+// -

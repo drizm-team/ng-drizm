@@ -27,7 +27,7 @@ import { ButtonsModule } from '@drizm/buttons';
     ButtonsModule
   ]
 })
-export class AppModule { }
+export class MyAwesomeModule { }
 ```
 
 Use the component in your template:
@@ -57,17 +57,18 @@ Note: You need to specify a button style in order for it to display correctly, l
 |---------|------------|
 |primary|`<dzm-button primary></dzm-button>`|
 |secondary|`<dzm-button secondary></dzm-button>`|
-|danger|`<dzm-button danger></dzm-button>`|
 |accent|`<dzm-button accent></dzm-button>`|
+|danger|`<dzm-button danger></dzm-button>`|
 
 #### Button designs
 | Design | Example |
 |---------|------------|
 |main(filled) - default|`<dzm-button></dzm-button>`|
 |outline|`<dzm-button outline></dzm-button>`|
+|rounded|`<dzm-button rounded></dzm-button>`|
 |text|`<dzm-button text></dzm-button>`|
 
-#### Overriding variables
+#### Overriding button styles
 You can override the default styles by overriding their css variables in `:root`. Here is a list of them and their default values:
 ```css
 :root {

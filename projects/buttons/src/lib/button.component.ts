@@ -54,6 +54,8 @@ export class ButtonComponent implements AfterViewInit {
     @Attribute('danger') public danger?: EmptyString,
     /** @description outline - Button design. Write <dzm-button outline></dzm-button> to enable it */
     @Attribute('outline') public outline?: EmptyString,
+    /** @description rounded - Button design. Write <dzm-button rounded></dzm-button> to enable it */
+    @Attribute('rounded') public rounded?: EmptyString,
     /** @description text - Button design. Write <dzm-button text></dzm-button> to enable it */
     @Attribute('text') public text?: EmptyString
   ) {
@@ -88,6 +90,8 @@ export class ButtonComponent implements AfterViewInit {
 
     if (this.outline === '') {
       btnDesign = 'dbtn-outline';
+    } else if (this.rounded === '') {
+      btnDesign = 'dbtn-rounded';
     } else if (this.text === '') {
       btnDesign = 'dbtn-text';
     } else {
