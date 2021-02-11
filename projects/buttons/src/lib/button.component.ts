@@ -48,10 +48,14 @@ export class ButtonComponent implements AfterViewInit {
     @Attribute('primary') public primary?: EmptyString,
     /** @description secondary - Button style. Write <dzm-button secondary></dzm-button> to enable it */
     @Attribute('secondary') public secondary?: EmptyString,
+    /** @description accent - Button style. Write <dzm-button accent></dzm-button> to enable it */
+    @Attribute('accent') public accent?: EmptyString,
     /** @description danger - Button style. Write <dzm-button danger></dzm-button> to enable it */
     @Attribute('danger') public danger?: EmptyString,
     /** @description outline - Button design. Write <dzm-button outline></dzm-button> to enable it */
-    @Attribute('outline') public outline?: EmptyString
+    @Attribute('outline') public outline?: EmptyString,
+    /** @description text - Button design. Write <dzm-button text></dzm-button> to enable it */
+    @Attribute('text') public text?: EmptyString
   ) {
   }
 
@@ -67,6 +71,8 @@ export class ButtonComponent implements AfterViewInit {
       btnStyle = 'dbtn-primary';
     } else if (this.secondary === '') {
       btnStyle = 'dbtn-secondary';
+    } else if (this.accent === '') {
+      btnStyle = 'dbtn-accent';
     } else if (this.danger === '') {
       btnStyle = 'dbtn-danger';
     } else {
@@ -82,6 +88,8 @@ export class ButtonComponent implements AfterViewInit {
 
     if (this.outline === '') {
       btnDesign = 'dbtn-outline';
+    } else if (this.text === '') {
+      btnDesign = 'dbtn-text';
     } else {
       return;
     }

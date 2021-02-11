@@ -1,21 +1,28 @@
-// Default variables
+// -- DEFAULT VARIABLES -- //
 :root {
   --color-primary: #0d7377;
-  --color-primary-light: #0F7369;
-  --color-primary-lighter: #379774;
-  --color-primary-lightest: #6CBA76;
+  --hover-primary: #0f857b;
+  --active-primary: #0e6b77;
 
-  --color-secondary-light: #00e2b7;
   --color-secondary: #00C49A;
-  --color-secondary-dark: #009d75;
+  --hover-secondary: #00e2b7;
+  --active-secondary: #009d75;
 
   --color-accent: #FF8A44;
-  --color-accent-dark: #d1693f;
+  --hover-accent: #ffac49;
+  --active-accent: #d1693f;
 
-  --color-danger:  #ce0000;
-  --hover-danger:  #7f0000;
+  --color-danger: #ce0000;
+  --hover-danger: #7f0000;
+  --active-danger: #ee0000;
 
-  --color-text: #292929;
+  --text-primary-main: white;
+  --text-secondary-main: #292929;
+  --text-accent-main: white;
+  --text-danger-main: white;
+
+  --text-disabled: #777777;
+  --bg-disabled: #d0d0d0;
 
   --radius-huge: 17px;
   --radius-bigger: 7px;
@@ -23,23 +30,18 @@
   --radius-normal: 3px;
   --radius-small: 2px;
   --radius-circle: 50%;
-
-  --border-default: 1px solid var(--color-grey);
-  --border-thick: 2px solid var(--color-grey);
-
-  --color-grey-light: #d0d0d0;
-  --color-grey: #a6a6a6;
-  --color-grey-dark: #777777;
 }
-// ---
 
-.__dbtn-base__ {
-  color: var(--color-text);
+// -- -- //
+
+// -- UTILS -- //
+@mixin baseBtn($color) {
+  color: $color;
   background-color: transparent;
   white-space: nowrap;
   width: min-content;
   cursor: pointer;
-  border: none;
+  border: 1px solid transparent;
   text-decoration: none;
   border-radius: var(--radius-small);
   outline: none;
@@ -51,82 +53,90 @@
 
   &:focus, &:active, &:active:focus, &[disabled], &:disabled {
     outline: none;
-    border: none;
+    border: 1px solid transparent;
     text-decoration: none;
     box-shadow: none;
   }
 
-  &[disabled], &:disabled {
-    color: var(--color-grey-dark);
+  &[disabled] {
+    color: var(--text-disabled);
     pointer-events: none;
     cursor: unset;
   }
 }
 
-.__dbtn-base__main {
-  @extend .__dbtn-base__;
+@mixin mainBtn($color, $bgColor, $hoverBgColor, $activeBgColor) {
+  @include baseBtn($color);
+  background-color: $bgColor;
 
   &:hover:not([disabled]) {
     color: white;
+    background-color: $hoverBgColor;
   }
 
-  &:active, &:active:focus {
+  &:focus, &:active, &:active:focus {
     color: white;
+    background-color: $activeBgColor;
+  }
+
+  &[disabled] {
+    background-color: var(--bg-disabled);
   }
 }
 
-.__dbtn-base__outline {
-  @extend .__dbtn-base__;
-  border-width: 1px;
-  border-style: solid;
+@mixin outlineBtn($color, $activeColor) {
+  @include baseBtn($color);
+  border: 1px solid $color;
 
-  &:active, &:active:focus, &:hover:not([disabled]) {
+  &:focus, &:active, &:active:focus, &:hover:not([disabled]) {
     color: white;
-    border-width: 1px;
-    border-style: solid;
+    border: 1px solid $color;
+  }
+
+  &:focus, &:active, &:active:focus {
+    background-color: $activeColor;
   }
 
   &:focus:not(:focus-visible) {
-    border-width: 1px;
-    border-style: solid;
-  }
-}
-
-// - PRIMARY - //
-.dbtn-primary:not(.dbtn-outline) {
-  @extend .__dbtn-base__main;
-  color: white;
-  background-color: var(--color-primary);
-
-  &[disabled] {
-    background-color: var(--color-grey-light);
+    border: 1px solid $color;
   }
 
   &:hover:not([disabled]) {
-    background-color: var(--color-secondary);
+    background-color: $color;
   }
 
-  &:active, &:active:focus {
-    background-color: var(--color-secondary-dark);
+  &[disabled] {
+    border-color: var(--text-disabled);
   }
+}
+
+@mixin textBtn($color, $hoverColor, $activeColor) {
+  @include baseBtn($color);
+
+  &:hover:not([disabled]) {
+    color: $hoverColor;
+  }
+
+  &:focus, &:active, &:active:focus {
+    color: $activeColor;
+  }
+}
+// -- -- //
+
+
+// -- BUTTONS -- //
+
+// - PRIMARY - //
+.dbtn-primary:not(.dbtn-outline):not(.dbtn-text) {
+  @include mainBtn(var(--text-primary-main), var(--color-primary), var(--hover-primary), var(--active-primary));
 }
 
 .dbtn-primary.dbtn-outline {
-  @extend .__dbtn-base__outline;
-  color: var(--color-primary);
-  border-color: var(--color-primary);
+  @include outlineBtn(var(--color-primary), var(--hover-primary));
+}
 
-  &:hover:not([disabled]) {
-    background-color: var(--color-primary);
-  }
-
-  &:active, &:active:focus {
-    background-color: var(--color-secondary);
-  }
-
-  &:focus:not(:focus-visible) {
-    border-color: var(--color-primary);
-  }
+.dbtn-primary.dbtn-text {
+  @include textBtn(var(--color-primary), var(--hover-primary), var(--active-primary));
 }
 
 // TODO
@@ -139,87 +149,43 @@
 //}
 
 // - SECONDARY - //
-.dbtn-secondary:not(.dbtn-outline) {
-  @extend .__dbtn-base__main;
-  background-color: var(--color-secondary);
-
-  &[disabled] {
-    background-color: var(--color-grey-light);
-  }
-
-  &:hover:not([disabled]) {
-    background-color: var(--color-secondary-light);
-  }
-
-  &:active, &:active:focus {
-    background-color: var(--color-secondary-dark);
-  }
+.dbtn-secondary:not(.dbtn-outline):not(.dbtn-text) {
+  @include mainBtn(var(--text-secondary-main), var(--color-secondary), var(--hover-secondary), var(--active-secondary));
 }
 
 .dbtn-secondary.dbtn-outline {
-  @extend .__dbtn-base__outline;
-  color: var(--color-secondary);
-  border-color: var(--color-secondary);
-
-  &:hover:not([disabled]) {
-    background-color: var(--color-secondary);
-  }
-
-  &:active, &:active:focus {
-    background-color: var(--color-secondary-dark);
-  }
-
-  &:focus:not(:focus-visible) {
-    border-color: var(--color-secondary);
-  }
+  @include outlineBtn(var(--color-secondary), var(--hover-secondary));
 }
 
-// TODO
-//// - CANCEL - //
-//.dzm-btn_danger {
-//  @extend .__dbtn-base__;
-//  color: var(--color-danger);
-//  border: 1px solid transparent;
-//
-//  &:focus {
-//    color: var(--color-danger);
-//    border: 1px solid transparent;
-//  }
-//
-//  &[disabled] {
-//    background-color: var(--color-grey-light);
-//    cursor: unset;
-//  }
-//
-//  &:hover:not([disabled]) {
-//    color: var(--hover-danger);
-//    border: 1px solid var(--hover-danger);
-//  }
-//
-//  &:active, &:active:focus {
-//    color: var(--hover-danger);
-//    border: 1px solid  var(--hover-danger);
-//  }
-//}
-//
-//.dzm-btn_danger__text {
-//  @extend .__dbtn-base__;
-//  color: var(--color-danger);
-//
-//  &:focus, &:hover:not([disabled]) {
-//    color: var(--hover-danger);
-//  }
-//
-//  &[disabled] {
-//    background-color: var(--color-grey-light);
-//    color: white;
-//    cursor: unset;
-//  }
-//
-//  &:active, &:active:focus {
-//    color: var(--hover-danger);
-//  }
-//}
+.dbtn-secondary.dbtn-text {
+  @include textBtn(var(--color-secondary), var(--hover-secondary), var(--active-secondary));
+}
+
+// - DANGER - //
+.dbtn-danger:not(.dbtn-outline):not(.dbtn-text) {
+  @include mainBtn(var(--text-danger-main), var(--color-danger), var(--hover-danger), var(--active-danger));
+}
+
+.dbtn-danger.dbtn-outline {
+  @include outlineBtn(var(--color-danger), var(--hover-danger));
+}
+
+.dbtn-danger.dbtn-text {
+  @include textBtn(var(--color-danger), var(--hover-danger), var(--active-danger));
+}
+
+// -- ACCENT -- //
+.dbtn-accent:not(.dbtn-outline):not(.dbtn-text) {
+  @include mainBtn(var(--text-accent-main), var(--color-accent), var(--hover-accent), var(--active-accent));
+}
+
+.dbtn-accent.dbtn-outline {
+  @include outlineBtn(var(--color-accent), var(--hover-accent));
+}
+
+.dbtn-accent.dbtn-text {
+  @include textBtn(var(--color-accent), var(--hover-accent), var(--active-accent));
+}
 
 // TODO
 //// - ICON - //
@@ -231,36 +197,4 @@
 //  padding: 0;
 //}
 //
-//// - LINK - //
-//.dzm-clickable_link {
-//  @extend .__dbtn-base__;
-//  padding: 0;
-//  min-height: unset;
-//  background-color: transparent;
-//  color: var(--color-secondary);
-//  cursor: pointer;
-//
-//  &:hover {
-//    color: var(--color-secondary-dark);
-//  }
-//}
-//
-//.dzm-clickable_link__accent {
-//  @extend .dzm-clickable_link;
-//  color: var(--color-accent);
-//
-//  &:hover {
-//    color: var(--color-accent-dark);
-//  }
-//}
-//
-//.dzm-clickable_link-sm {
-//  @extend .dzm-clickable_link;
-//  font-weight: bold;
-//  font-size: .875rem;
-//}
-//
-//.dzm-clickable_link-sm_accent {
-//  @extend .dzm-clickable_link-sm;
-//  @extend .dzm-clickable_link__accent;
-//}
+// -- -- //
