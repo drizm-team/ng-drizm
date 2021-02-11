@@ -10,3 +10,36 @@ html, body {
   box-sizing: border-box;
 }
 
+// Uncomment to test overriding button styles
+//:root {
+//  --color-primary: #775f2c;
+//  --hover-primary: #775f2c;
+//  --active-primary: #775f2c;
+//
+//  --color-secondary: #556dc4;
+//  --hover-secondary: #556dc4;
+//  --active-secondary: #556dc4;
+//
+//  --color-accent: #fff27f;
+//  --hover-accent: #fff27f;
+//  --active-accent: #fff27f;
+//
+//  --color-danger: #ce408b;
+//  --hover-danger: #ce408b;
+//  --active-danger: #ce408b;
+//
+//  --text-primary-main: white;
+//  --text-secondary-main: white;
+//  --text-accent-main: #292929;
+//  --text-danger-main: white;
+//
+//  --text-disabled: #574e51;
+//  --bg-disabled: #c2a8ac;
+//
+//  --radius-huge: 17px;
+//  --radius-bigger: 7px;
+//  --radius-big: 5px;
+//  --radius-normal: 3px;
+//  --radius-small: 2px;
+//  --radius-circle: 50%;
+//}

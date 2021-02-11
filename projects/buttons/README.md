@@ -66,3 +66,40 @@ Note: You need to specify a button style in order for it to display correctly, l
 |main(filled) - default|`<dzm-button></dzm-button>`|
 |outline|`<dzm-button outline></dzm-button>`|
 |text|`<dzm-button text></dzm-button>`|
+
+#### Overriding variables
+You can override the default styles by overriding their css variables in `:root`. Here is a list of them and their default values:
+```css
+:root {
+  --color-primary: #0d7377;
+  --hover-primary: #0f857b;
+  --active-primary: #0e6b77;
+
+  --color-secondary: #00C49A;
+  --hover-secondary: #00e2b7;
+  --active-secondary: #009d75;
+
+  --color-accent: #FF8A44;
+  --hover-accent: #ffac49;
+  --active-accent: #d1693f;
+
+  --color-danger: #ce0000;
+  --hover-danger: #7f0000;
+  --active-danger: #ee0000;
+
+  --text-primary-main: white;
+  --text-secondary-main: #292929;
+  --text-accent-main: white;
+  --text-danger-main: white;
+
+  --text-disabled: #777777;
+  --bg-disabled: #d0d0d0;
+
+  --radius-huge: 17px;
+  --radius-bigger: 7px;
+  --radius-big: 5px;
+  --radius-normal: 3px;
+  --radius-small: 2px;
+  --radius-circle: 50%;
+}
+```
