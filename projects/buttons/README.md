@@ -37,3 +37,18 @@ Use the component in your template:
   Confirm
 </dzm-button>
 ```
+
+Note: You need to specify a button style in order for it to display correctly, like in the example above.
+ Check documentation below for more styles.
+
+## Documentation
+
+| Property | Type | Description |
+|---------|---------|------------|
+|type|"button" or "submit"|The button html element type. Optional.|
+|content|string|A string containing the button's content. Optional. Alternatively, insert the content straight into the component selector via `<dzm-button>Content</dzm-button>`.|
+|disabled|boolean|Whether the button should be displayed as disabled. False by default.|
+|primary|""|Button style. Write <dzm-button primary></dzm-button> to enable it. Optional.|
+|secondary|""|Button style. Write <dzm-button secondary></dzm-button> to enable it. Optional.|
+|danger|""|Button style. Write <dzm-button danger></dzm-button> to enable it. Optional.|
+|outline|""|Button design. Write <dzm-button outline></dzm-button> to enable it. Optional.|
