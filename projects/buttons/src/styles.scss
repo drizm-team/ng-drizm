@@ -1,35 +1,35 @@
 // -- DEFAULT VARIABLES -- //
 :root {
-  --color-primary: #0d7377;
-  --hover-primary: #0f857b;
-  --active-primary: #0e6b77;
+  --dbtn-color-primary: #0d7377;
+  --dbtn-hover-primary: #0f857b;
+  --dbtn-active-primary: #0e6b77;
 
-  --color-secondary: #00C49A;
-  --hover-secondary: #00e2b7;
-  --active-secondary: #009d75;
+  --dbtn-color-secondary: #00C49A;
+  --dbtn-hover-secondary: #00e2b7;
+  --dbtn-active-secondary: #009d75;
 
-  --color-accent: #FF8A44;
-  --hover-accent: #ffac49;
-  --active-accent: #d1693f;
+  --dbtn-color-accent: #FF8A44;
+  --dbtn-hover-accent: #ffac49;
+  --dbtn-active-accent: #d1693f;
 
-  --color-danger: #ce0000;
-  --hover-danger: #7f0000;
-  --active-danger: #ee0000;
+  --dbtn-color-danger: #ce0000;
+  --dbtn-hover-danger: #7f0000;
+  --dbtn-active-danger: #ee0000;
 
-  --text-primary-main: white;
-  --text-secondary-main: #292929;
-  --text-accent-main: white;
-  --text-danger-main: white;
+  --dbtn-text-primary-main: white;
+  --dbtn-text-secondary-main: #292929;
+  --dbtn-text-accent-main: white;
+  --dbtn-text-danger-main: white;
 
-  --text-disabled: #777777;
-  --bg-disabled: #d0d0d0;
+  --dbtn-text-disabled: #777777;
+  --dbtn-bg-disabled: #d0d0d0;
 
-  --radius-huge: 17px;
-  --radius-bigger: 7px;
-  --radius-big: 5px;
-  --radius-normal: 3px;
-  --radius-small: 2px;
-  --radius-circle: 50%;
+  --dbtn-radius-huge: 17px;
+  --dbtn-radius-bigger: 7px;
+  --dbtn-radius-big: 5px;
+  --dbtn-radius-normal: 3px;
+  --dbtn-radius-small: 2px;
+  --dbtn-radius-circle: 50%;
 }
 
 // -- -- //
@@ -43,7 +43,7 @@
   cursor: pointer;
   border: 1px solid transparent;
   text-decoration: none;
-  border-radius: var(--radius-small);
+  border-radius: var(--dbtn-radius-small);
   outline: none;
   box-shadow: none;
   min-height: 2rem;
@@ -59,7 +59,7 @@
   }
 
   &[disabled] {
-    color: var(--text-disabled);
+    color: var(--dbtn-text-disabled);
     pointer-events: none;
     cursor: unset;
   }
@@ -80,7 +80,7 @@
   }
 
   &[disabled] {
-    background-color: var(--bg-disabled);
+    background-color: var(--dbtn-bg-disabled);
   }
 }
 
@@ -106,7 +106,7 @@
   }
 
   &[disabled] {
-    border-color: var(--text-disabled);
+    border-color: var(--dbtn-text-disabled);
   }
 }
 
@@ -128,15 +128,15 @@
 
 // - PRIMARY - //
 .dbtn-primary:not(.dbtn-outline):not(.dbtn-text) {
-  @include mainBtn(var(--text-primary-main), var(--color-primary), var(--hover-primary), var(--active-primary));
+  @include mainBtn(var(--dbtn-text-primary-main), var(--dbtn-color-primary), var(--dbtn-hover-primary), var(--dbtn-active-primary));
 }
 
 .dbtn-primary.dbtn-outline {
-  @include outlineBtn(var(--color-primary), var(--hover-primary));
+  @include outlineBtn(var(--dbtn-color-primary), var(--dbtn-hover-primary));
 }
 
 .dbtn-primary.dbtn-text {
-  @include textBtn(var(--color-primary), var(--hover-primary), var(--active-primary));
+  @include textBtn(var(--dbtn-color-primary), var(--dbtn-hover-primary), var(--dbtn-active-primary));
 }
 
 // TODO
@@ -150,41 +150,41 @@
 
 // - SECONDARY - //
 .dbtn-secondary:not(.dbtn-outline):not(.dbtn-text) {
-  @include mainBtn(var(--text-secondary-main), var(--color-secondary), var(--hover-secondary), var(--active-secondary));
+  @include mainBtn(var(--dbtn-text-secondary-main), var(--dbtn-color-secondary), var(--dbtn-hover-secondary), var(--dbtn-active-secondary));
 }
 
 .dbtn-secondary.dbtn-outline {
-  @include outlineBtn(var(--color-secondary), var(--hover-secondary));
+  @include outlineBtn(var(--dbtn-color-secondary), var(--dbtn-hover-secondary));
 }
 
 .dbtn-secondary.dbtn-text {
-  @include textBtn(var(--color-secondary), var(--hover-secondary), var(--active-secondary));
+  @include textBtn(var(--dbtn-color-secondary), var(--dbtn-hover-secondary), var(--dbtn-active-secondary));
 }
 
 // - DANGER - //
 .dbtn-danger:not(.dbtn-outline):not(.dbtn-text) {
-  @include mainBtn(var(--text-danger-main), var(--color-danger), var(--hover-danger), var(--active-danger));
+  @include mainBtn(var(--dbtn-text-danger-main), var(--dbtn-color-danger), var(--dbtn-hover-danger), var(--dbtn-active-danger));
 }
 
 .dbtn-danger.dbtn-outline {
-  @include outlineBtn(var(--color-danger), var(--hover-danger));
+  @include outlineBtn(var(--dbtn-color-danger), var(--dbtn-hover-danger));
 }
 
 .dbtn-danger.dbtn-text {
-  @include textBtn(var(--color-danger), var(--hover-danger), var(--active-danger));
+  @include textBtn(var(--dbtn-color-danger), var(--dbtn-hover-danger), var(--dbtn-active-danger));
 }
 
 // -- ACCENT -- //
 .dbtn-accent:not(.dbtn-outline):not(.dbtn-text) {
-  @include mainBtn(var(--text-accent-main), var(--color-accent), var(--hover-accent), var(--active-accent));
+  @include mainBtn(var(--dbtn-text-accent-main), var(--dbtn-color-accent), var(--dbtn-hover-accent), var(--dbtn-active-accent));
 }
 
 .dbtn-accent.dbtn-outline {
-  @include outlineBtn(var(--color-accent), var(--hover-accent));
+  @include outlineBtn(var(--dbtn-color-accent), var(--dbtn-hover-accent));
 }
 
 .dbtn-accent.dbtn-text {
-  @include textBtn(var(--color-accent), var(--hover-accent), var(--active-accent));
+  @include textBtn(var(--dbtn-color-accent), var(--dbtn-hover-accent), var(--dbtn-active-accent));
 }
 
 // TODO

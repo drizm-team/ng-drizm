@@ -71,35 +71,35 @@ Note: You need to specify a button style in order for it to display correctly, l
 You can override the default styles by overriding their css variables in `:root`. Here is a list of them and their default values:
 ```css
 :root {
-  --color-primary: #0d7377;
-  --hover-primary: #0f857b;
-  --active-primary: #0e6b77;
+  --dbtn-color-primary: #0d7377;
+  --dbtn-hover-primary: #0f857b;
+  --dbtn-active-primary: #0e6b77;
 
-  --color-secondary: #00C49A;
-  --hover-secondary: #00e2b7;
-  --active-secondary: #009d75;
+  --dbtn-color-secondary: #00C49A;
+  --dbtn-hover-secondary: #00e2b7;
+  --dbtn-active-secondary: #009d75;
 
-  --color-accent: #FF8A44;
-  --hover-accent: #ffac49;
-  --active-accent: #d1693f;
+  --dbtn-color-accent: #FF8A44;
+  --dbtn-hover-accent: #ffac49;
+  --dbtn-active-accent: #d1693f;
 
-  --color-danger: #ce0000;
-  --hover-danger: #7f0000;
-  --active-danger: #ee0000;
+  --dbtn-color-danger: #ce0000;
+  --dbtn-hover-danger: #7f0000;
+  --dbtn-active-danger: #ee0000;
 
-  --text-primary-main: white;
-  --text-secondary-main: #292929;
-  --text-accent-main: white;
-  --text-danger-main: white;
+  --dbtn-text-primary-main: white;
+  --dbtn-text-secondary-main: #292929;
+  --dbtn-text-accent-main: white;
+  --dbtn-text-danger-main: white;
 
-  --text-disabled: #777777;
-  --bg-disabled: #d0d0d0;
+  --dbtn-text-disabled: #777777;
+  --dbtn-bg-disabled: #d0d0d0;
 
-  --radius-huge: 17px;
-  --radius-bigger: 7px;
-  --radius-big: 5px;
-  --radius-normal: 3px;
-  --radius-small: 2px;
-  --radius-circle: 50%;
+  --dbtn-radius-huge: 17px;
+  --dbtn-radius-bigger: 7px;
+  --dbtn-radius-big: 5px;
+  --dbtn-radius-normal: 3px;
+  --dbtn-radius-small: 2px;
+  --dbtn-radius-circle: 50%;
 }
 ```
