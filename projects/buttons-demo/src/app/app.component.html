@@ -1,5 +1,6 @@
 <div class="background">
   <div class="wrapper">
+    <h3>ACTIVE</h3>
     <div class="btns">
       <dzm-button type="button" primary (click)="log('primary clicked')">
         <span>Primary btn</span>
@@ -15,22 +16,6 @@
 
       <dzm-button type="button" primary text (click)="log('primary text clicked')">
         Primary text
-      </dzm-button>
-
-      <dzm-button type="button" [disabled]="true" primary (click)="log('primary disabled clicked')">
-        Primary disabled
-      </dzm-button>
-
-      <dzm-button type="button" [disabled]="true" primary outline (click)="log('primary outline disabled clicked')">
-        Primary outline disabled
-      </dzm-button>
-
-      <dzm-button type="button" [disabled]="true" primary rounded (click)="log('primary rounded disabled clicked')">
-        Primary rounded disabled
-      </dzm-button>
-
-      <dzm-button type="button" [disabled]="true" primary text (click)="log('primary text disabled clicked')">
-        Primary text disabled
       </dzm-button>
     </div>
 
@@ -48,22 +33,6 @@
 
       <dzm-button type="button" secondary text (click)="log('secondary text clicked')">
         <span>Secondary text</span>
-      </dzm-button>
-
-      <dzm-button type="button" [disabled]="true" secondary (click)="log('secondary disabled clicked')">
-        <span>Secondary disabled</span>
-      </dzm-button>
-
-      <dzm-button type="button" [disabled]="true" secondary outline (click)="log('secondary outline disabled clicked')">
-        <span>Secondary outline disabled</span>
-      </dzm-button>
-
-      <dzm-button type="button" [disabled]="true" secondary rounded (click)="log('secondary rounded disabled clicked')">
-        <span>Secondary rounded disabled</span>
-      </dzm-button>
-
-      <dzm-button type="button" [disabled]="true" secondary text (click)="log('secondary text disabled clicked')">
-        <span>Secondary text disabled</span>
       </dzm-button>
     </div>
 
@@ -83,22 +52,6 @@
       <dzm-button type="button" accent text (click)="log('accent text clicked')">
         Accent text
       </dzm-button>
-
-      <dzm-button type="button" [disabled]="true" accent (click)="log('accent disabled clicked')">
-        Accent disabled
-      </dzm-button>
-
-      <dzm-button type="button" [disabled]="true" accent outline (click)="log('accent outline disabled clicked')">
-        Accent outline disabled
-      </dzm-button>
-
-      <dzm-button type="button" [disabled]="true" accent rounded (click)="log('accent rounded disabled clicked')">
-        Accent rounded disabled
-      </dzm-button>
-
-      <dzm-button type="button" [disabled]="true" accent text (click)="log('accent text disabled clicked')">
-        Accent text disabled
-      </dzm-button>
     </div>
 
     <div class="btns">
@@ -117,21 +70,78 @@
       <dzm-button type="button" danger text (click)="log('danger text clicked')">
         Danger text
       </dzm-button>
+    </div>
 
+    <h3>DISABLED</h3>
+    <div class="btns">
+      <dzm-button type="button" [disabled]="true" primary (click)="log('primary disabled clicked')">
+        Primary btn
+      </dzm-button>
+
+      <dzm-button type="button" [disabled]="true" primary outline (click)="log('primary outline disabled clicked')">
+        Primary outline
+      </dzm-button>
+
+      <dzm-button type="button" [disabled]="true" primary rounded (click)="log('primary rounded disabled clicked')">
+        Primary rounded
+      </dzm-button>
+
+      <dzm-button type="button" [disabled]="true" primary text (click)="log('primary text disabled clicked')">
+        Primary text
+      </dzm-button>
+    </div>
+
+    <div class="btns">
+      <dzm-button type="button" [disabled]="true" secondary (click)="log('secondary disabled clicked')">
+        <span>Secondary btn</span>
+      </dzm-button>
+
+      <dzm-button type="button" [disabled]="true" secondary outline (click)="log('secondary outline disabled clicked')">
+        <span>Secondary outline</span>
+      </dzm-button>
+
+      <dzm-button type="button" [disabled]="true" secondary rounded (click)="log('secondary rounded disabled clicked')">
+        <span>Secondary rounded</span>
+      </dzm-button>
+
+      <dzm-button type="button" [disabled]="true" secondary text (click)="log('secondary text disabled clicked')">
+        <span>Secondary text</span>
+      </dzm-button>
+    </div>
+
+    <div class="btns">
+      <dzm-button type="button" [disabled]="true" accent (click)="log('accent disabled clicked')">
+        Accent btn
+      </dzm-button>
+
+      <dzm-button type="button" [disabled]="true" accent outline (click)="log('accent outline disabled clicked')">
+        Accent outline
+      </dzm-button>
+
+      <dzm-button type="button" [disabled]="true" accent rounded (click)="log('accent rounded disabled clicked')">
+        Accent rounded
+      </dzm-button>
+
+      <dzm-button type="button" [disabled]="true" accent text (click)="log('accent text disabled clicked')">
+        Accent text
+      </dzm-button>
+    </div>
+
+    <div class="btns">
       <dzm-button type="button" [disabled]="true" danger (click)="log('danger disabled clicked')">
-        Danger disabled
+        Danger btn
       </dzm-button>
 
       <dzm-button type="button" [disabled]="true" danger outline (click)="log('danger outline disabled clicked')">
-        Danger outline disabled
+        Danger outline
       </dzm-button>
 
       <dzm-button type="button" [disabled]="true" danger rounded (click)="log('danger rounded disabled clicked')">
-        Danger rounded disabled
+        Danger rounded
       </dzm-button>
 
       <dzm-button type="button" [disabled]="true" danger text (click)="log('danger text clicked')">
-        Danger text disabled
+        Danger text
       </dzm-button>
     </div>
   </div>

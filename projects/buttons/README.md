@@ -1,13 +1,14 @@
-## This is a WIP
-
 # @drizm/buttons
 
 A buttons library for Angular.
 
+![All button variants](./buttons.png?raw=true "All button variants")
+
 ## Features
 
-- A styled, fully functional button component
+- A simple and elegant-to-use button component
 - Easy to override styles
+- Many styles and designs to choose from
 
 ## Installation
 ```shell
