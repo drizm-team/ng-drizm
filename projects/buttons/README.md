@@ -31,6 +31,11 @@ import { ButtonsModule } from '@drizm/buttons';
 export class MyAwesomeModule { }
 ```
 
+Import the library styles in your styles.scss:
+```scss
+@import '~@drizm/buttons/scss/styles';
+```
+
 Use the component in your template:
 
 ```html
