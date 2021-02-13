@@ -1,0 +1,221 @@
+// TODO: Icon buttons
+
+// -- DEFAULT VARIABLES -- //
+:root {
+  --dbtn-color-primary: #0d7377;
+  --dbtn-hover-primary: #0f857b;
+  --dbtn-active-primary: #0e6b77;
+
+  --dbtn-color-secondary: #00C49A;
+  --dbtn-hover-secondary: #00e2b7;
+  --dbtn-active-secondary: #009d75;
+
+  --dbtn-color-accent: #FF8A44;
+  --dbtn-hover-accent: #ffac49;
+  --dbtn-active-accent: #d1693f;
+
+  --dbtn-color-danger: #ce0000;
+  --dbtn-hover-danger: #7f0000;
+  --dbtn-active-danger: #ee0000;
+
+  --dbtn-text-primary-main: white;
+  --dbtn-text-secondary-main: #292929;
+  --dbtn-text-accent-main: white;
+  --dbtn-text-danger-main: white;
+
+  --dbtn-text-disabled: #777777;
+  --dbtn-bg-disabled: #d0d0d0;
+
+  --dbtn-radius-huge: 17px;
+  --dbtn-radius-bigger: 7px;
+  --dbtn-radius-big: 5px;
+  --dbtn-radius-normal: 3px;
+  --dbtn-radius-small: 2px;
+  --dbtn-radius-circle: 50%;
+}
+
+// -- -- //
+
+// -- UTILS -- //
+@mixin baseBtn($color) {
+  color: $color;
+  background-color: transparent;
+  white-space: nowrap;
+  width: min-content;
+  cursor: pointer;
+  border: 1px solid transparent;
+  text-decoration: none;
+  border-radius: var(--dbtn-radius-small);
+  outline: none;
+  box-shadow: none;
+  min-height: 2rem;
+  min-width: 5rem;
+  padding: .375rem 1.5rem;
+  transition: background-color .2s ease-in-out, border-color .2s ease-in-out, color .2s ease-in-out;
+
+  &:focus, &:active, &:active:focus, &[disabled], &:disabled {
+    outline: none;
+    border: 1px solid transparent;
+    text-decoration: none;
+    box-shadow: none;
+  }
+
+  &[disabled] {
+    color: var(--dbtn-text-disabled);
+    pointer-events: none;
+    cursor: unset;
+  }
+}
+
+@mixin mainBtn($color, $bgColor, $hoverBgColor, $activeBgColor) {
+  @include baseBtn($color);
+  background-color: $bgColor;
+
+  &:hover:not([disabled]) {
+    color: white;
+    background-color: $hoverBgColor;
+  }
+
+  &:focus, &:active, &:active:focus {
+    color: white;
+    background-color: $activeBgColor;
+  }
+
+  &[disabled] {
+    background-color: var(--dbtn-bg-disabled);
+  }
+}
+
+@mixin outlineBtn($color, $activeColor) {
+  @include baseBtn($color);
+  border: 1px solid $color;
+
+  &:focus, &:active, &:active:focus, &:hover:not([disabled]) {
+    color: white;
+    border: 1px solid $color;
+  }
+
+  &:focus, &:active, &:active:focus {
+    background-color: $activeColor;
+  }
+
+  &:focus:not(:focus-visible) {
+    border: 1px solid $color;
+  }
+
+  &:hover:not([disabled]) {
+    background-color: $color;
+  }
+
+  &[disabled] {
+    border-color: var(--dbtn-text-disabled);
+  }
+}
+
+@mixin roundedBtn($color, $bgColor, $hoverBgColor, $activeBgColor) {
+  @include baseBtn($color);
+  background-color: $bgColor;
+  border-radius: var(--dbtn-radius-huge);
+
+  &:hover:not([disabled]) {
+    color: white;
+    background-color: $hoverBgColor;
+  }
+
+  &:focus, &:active, &:active:focus {
+    color: white;
+    background-color: $activeBgColor;
+  }
+
+  &[disabled] {
+    background-color: var(--dbtn-bg-disabled);
+  }
+}
+
+@mixin textBtn($color, $hoverColor, $activeColor) {
+  @include baseBtn($color);
+
+  &:hover:not([disabled]) {
+    color: $hoverColor;
+  }
+
+  &:focus, &:active, &:active:focus {
+    color: $activeColor;
+  }
+}
+// -- -- //
+
+
+// -- BUTTONS -- //
+
+// - PRIMARY - //
+.dbtn-primary:not(.dbtn-outline):not(.dbtn-text):not(.dbtn-rounded) {
+  @include mainBtn(var(--dbtn-text-primary-main), var(--dbtn-color-primary), var(--dbtn-hover-primary), var(--dbtn-active-primary));
+}
+
+.dbtn-primary.dbtn-outline {
+  @include outlineBtn(var(--dbtn-color-primary), var(--dbtn-hover-primary));
+}
+
+.dbtn-primary.dbtn-rounded {
+  @include roundedBtn(var(--dbtn-text-primary-main), var(--dbtn-color-primary), var(--dbtn-hover-primary), var(--dbtn-active-primary));
+}
+
+.dbtn-primary.dbtn-text {
+  @include textBtn(var(--dbtn-color-primary), var(--dbtn-hover-primary), var(--dbtn-active-primary));
+}
+// -
+
+// - SECONDARY - //
+.dbtn-secondary:not(.dbtn-outline):not(.dbtn-text):not(.dbtn-rounded) {
+  @include mainBtn(var(--dbtn-text-secondary-main), var(--dbtn-color-secondary), var(--dbtn-hover-secondary), var(--dbtn-active-secondary));
+}
+
+.dbtn-secondary.dbtn-outline {
+  @include outlineBtn(var(--dbtn-color-secondary), var(--dbtn-hover-secondary));
+}
+
+.dbtn-secondary.dbtn-rounded {
+  @include roundedBtn(var(--dbtn-text-secondary-main), var(--dbtn-color-secondary), var(--dbtn-hover-secondary), var(--dbtn-active-secondary));
+}
+
+.dbtn-secondary.dbtn-text {
+  @include textBtn(var(--dbtn-color-secondary), var(--dbtn-hover-secondary), var(--dbtn-active-secondary));
+}
+// -
+
+// -- ACCENT -- //
+.dbtn-accent:not(.dbtn-outline):not(.dbtn-text):not(.dbtn-rounded) {
+  @include mainBtn(var(--dbtn-text-accent-main), var(--dbtn-color-accent), var(--dbtn-hover-accent), var(--dbtn-active-accent));
+}
+
+.dbtn-accent.dbtn-outline {
+  @include outlineBtn(var(--dbtn-color-accent), var(--dbtn-hover-accent));
+}
+
+.dbtn-accent.dbtn-rounded {
+  @include roundedBtn(var(--dbtn-text-accent-main), var(--dbtn-color-accent), var(--dbtn-hover-accent), var(--dbtn-active-accent));
+}
+
+.dbtn-accent.dbtn-text {
+  @include textBtn(var(--dbtn-color-accent), var(--dbtn-hover-accent), var(--dbtn-active-accent));
+}
+// -
+
+// - DANGER - //
+.dbtn-danger:not(.dbtn-outline):not(.dbtn-text):not(.dbtn-rounded) {
+  @include mainBtn(var(--dbtn-text-danger-main), var(--dbtn-color-danger), var(--dbtn-hover-danger), var(--dbtn-active-danger));
+}
+
+.dbtn-danger.dbtn-outline {
+  @include outlineBtn(var(--dbtn-color-danger), var(--dbtn-hover-danger));
+}
+
+.dbtn-danger.dbtn-rounded {
+  @include roundedBtn(var(--dbtn-text-danger-main), var(--dbtn-color-danger), var(--dbtn-hover-danger), var(--dbtn-active-danger));
+}
+
+.dbtn-danger.dbtn-text {
+  @include textBtn(var(--dbtn-color-danger), var(--dbtn-hover-danger), var(--dbtn-active-danger));
+}
+// -

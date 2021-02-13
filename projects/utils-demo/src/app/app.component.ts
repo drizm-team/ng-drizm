@@ -14,7 +14,7 @@ export class AppComponent implements OnInit {
 
   removeArrayItem(): void {
     const arr: number[] = [this.randomInt(), this.randomInt(), this.randomInt(), this.randomInt(), this.randomInt()];
-    console.log(remove(arr, true, 1, 2, 3));
+    console.log(remove(arr, [1, 2, 3], true));
   }
 
   randomInt(): number {

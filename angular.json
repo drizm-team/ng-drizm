@@ -202,6 +202,166 @@
           }
         }
       }
+    },
+    "buttons": {
+      "projectType": "library",
+      "root": "projects/buttons",
+      "sourceRoot": "projects/buttons/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "tsConfig": "projects/buttons/tsconfig.lib.json",
+            "project": "projects/buttons/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/buttons/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/buttons/src/test.ts",
+            "tsConfig": "projects/buttons/tsconfig.spec.json",
+            "karmaConfig": "projects/buttons/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/buttons/tsconfig.lib.json",
+              "projects/buttons/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "buttons-demo": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "projects/buttons-demo",
+      "sourceRoot": "projects/buttons-demo/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/buttons-demo",
+            "index": "projects/buttons-demo/src/index.html",
+            "main": "projects/buttons-demo/src/main.ts",
+            "polyfills": "projects/buttons-demo/src/polyfills.ts",
+            "tsConfig": "projects/buttons-demo/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "projects/buttons-demo/src/favicon.ico",
+              "projects/buttons-demo/src/assets"
+            ],
+            "styles": [
+              "projects/buttons-demo/src/styles.scss"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/buttons-demo/src/environments/environment.ts",
+                  "with": "projects/buttons-demo/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "buttons-demo:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "buttons-demo:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "buttons-demo:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/buttons-demo/src/test.ts",
+            "polyfills": "projects/buttons-demo/src/polyfills.ts",
+            "tsConfig": "projects/buttons-demo/tsconfig.spec.json",
+            "karmaConfig": "projects/buttons-demo/karma.conf.js",
+            "assets": [
+              "projects/buttons-demo/src/favicon.ico",
+              "projects/buttons-demo/src/assets"
+            ],
+            "styles": [
+              "projects/buttons-demo/src/styles.scss"
+            ],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/buttons-demo/tsconfig.app.json",
+              "projects/buttons-demo/tsconfig.spec.json",
+              "projects/buttons-demo/e2e/tsconfig.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/buttons-demo/e2e/protractor.conf.js",
+            "devServerTarget": "buttons-demo:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "buttons-demo:serve:production"
+            }
+          }
+        }
+      }
     }
   },
   "defaultProject": "loader"

@@ -1,0 +1,45 @@
+@import 'dist/buttons/scss/styles';
+
+html, body {
+  height: min-content;
+  min-height: calc(100vh - 1rem);
+  background-color: #212121;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+// Uncomment to test overriding button styles
+//:root {
+//  --dbtn-color-primary: #775f2c;
+//  --dbtn-hover-primary: #775f2c;
+//  --dbtn-active-primary: #775f2c;
+//
+//  --dbtn-color-secondary: #556dc4;
+//  --dbtn-hover-secondary: #556dc4;
+//  --dbtn-active-secondary: #556dc4;
+//
+//  --dbtn-color-accent: #fff27f;
+//  --dbtn-hover-accent: #fff27f;
+//  --dbtn-active-accent: #fff27f;
+//
+//  --dbtn-color-danger: #ce408b;
+//  --dbtn-hover-danger: #ce408b;
+//  --dbtn-active-danger: #ce408b;
+//
+//  --dbtn-text-primary-main: white;
+//  --dbtn-text-secondary-main: white;
+//  --dbtn-text-accent-main: #292929;
+//  --dbtn-text-danger-main: white;
+//
+//  --dbtn-text-disabled: #574e51;
+//  --dbtn-bg-disabled: #c2a8ac;
+//
+//  --dbtn-radius-huge: 17px;
+//  --dbtn-radius-bigger: 7px;
+//  --dbtn-radius-big: 5px;
+//  --dbtn-radius-normal: 3px;
+//  --dbtn-radius-small: 2px;
+//  --dbtn-radius-circle: 50%;
+//}
