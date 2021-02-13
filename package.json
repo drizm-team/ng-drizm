@@ -12,17 +12,14 @@
     "build-utils:watch": "ng build utils --prod --watch",
     "build-loader": "ng build loader --prod",
     "build-loader:watch": "ng build loader --prod --watch",
-    "build-buttons": "npm run _build-buttons && npm run _build-buttons-styles",
-    "build-buttons:watch": "npm run _build-buttons:watch && npm run _build-buttons-styles",
+    "build-buttons": "ng build buttons --prod",
+    "build-buttons:watch": "ng build buttons --prod --watch",
     "<---OTHER--->": "",
     "ng": "ng",
     "start": "ng serve",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e",
-    "_build-buttons-styles": "cpx \"./projects/buttons/src/styles.scss\" \"./dist/buttons/scss\"",
-    "_build-buttons": "ng build buttons --prod",
-    "_build-buttons:watch": "ng build buttons --prod --watch"
+    "e2e": "ng e2e"
   },
   "private": false,
   "dependencies": {

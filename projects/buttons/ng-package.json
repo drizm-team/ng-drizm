@@ -3,5 +3,9 @@
   "dest": "../../dist/buttons",
   "lib": {
     "entryFile": "src/public-api.ts"
-  }
+  },
+  "assets": [
+    "./buttons.png",
+    "./scss/**/*"
+  ]
 }
