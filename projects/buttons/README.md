@@ -2,7 +2,7 @@
 
 A buttons library for Angular.
 
-![All button variants](./buttons.png?raw=true "All button variants")
+![All button variants](https://raw.githubusercontent.com/drizm-team/ng-drizm/master/projects/buttons/buttons.png "All button variants")
 
 ## Features
 
