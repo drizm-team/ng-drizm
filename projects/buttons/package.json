@@ -1,7 +1,7 @@
 {
   "name": "@drizm/buttons",
   "description": "A buttons library for Angular",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "license": "MIT",
   "homepage": "https://github.com/drizm-team/ng-drizm/tree/master/projects/buttons",
   "repository": {
@@ -17,8 +17,8 @@
     "angular11"
   ],
   "peerDependencies": {
-    "@angular/common": ">=10.0.0",
-    "@angular/core": "^>=10.0.0"
+    "@angular/common": "^10.0.0",
+    "@angular/core": "^10.0.0"
   },
   "dependencies": {
     "tslib": "^2.0.0"
