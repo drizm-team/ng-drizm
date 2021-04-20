@@ -3,7 +3,7 @@
 // -- DEFAULT VARIABLES -- //
 :root {
   --dbtn-color-primary: #0d7377;
-  --dbtn-hover-primary: #0f857b;
+  --dbtn-hover-primary: #10aca2;
   --dbtn-active-primary: #0e6b77;
 
   --dbtn-color-secondary: #00C49A;
@@ -134,6 +134,8 @@
 
 @mixin textBtn($color, $hoverColor, $activeColor) {
   @include baseBtn($color);
+  font-weight: 700;
+  padding: 0;
 
   &:hover:not([disabled]) {
     color: $hoverColor;
