@@ -86,18 +86,22 @@ export class ButtonComponent implements AfterViewInit {
   }
 
   private addDesign(): void {
-    let btnDesign = '';
+    const btnDesign: string[] = [];
 
     if (this.outline === '') {
-      btnDesign = 'dbtn-outline';
-    } else if (this.rounded === '') {
-      btnDesign = 'dbtn-rounded';
-    } else if (this.text === '') {
-      btnDesign = 'dbtn-text';
-    } else {
-      return;
+      btnDesign.push('dbtn-outline');
     }
 
-    this.renderer.addClass(this.btnEl.nativeElement, btnDesign);
+    if (this.rounded === '') {
+      btnDesign.push('dbtn-rounded');
+    }
+
+    if (this.text === '') {
+      btnDesign.push('dbtn-text');
+    }
+
+    btnDesign.forEach(design => {
+      this.renderer.addClass(this.btnEl.nativeElement, design);
+    });
   }
 }

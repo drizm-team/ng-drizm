@@ -7,7 +7,7 @@ import {ChangeDetectionStrategy, Component} from '@angular/core';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AppComponent {
-  content = 'Secondary btn';
+  content = 'Secondary';
 
   log(content: string): void {
     console.log(content);

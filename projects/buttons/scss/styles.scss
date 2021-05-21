@@ -90,6 +90,10 @@
   @include baseBtn($color);
   border: 1px solid $color;
 
+  &.dbtn-rounded {
+    border-radius: var(--dbtn-radius-huge);
+  }
+
   &:focus, &:active, &:active:focus, &:hover:not([disabled]) {
     color: white;
     border: 1px solid $color;
@@ -145,6 +149,7 @@
     color: $activeColor;
   }
 }
+
 // -- -- //
 
 
@@ -159,13 +164,14 @@
   @include outlineBtn(var(--dbtn-color-primary), var(--dbtn-hover-primary));
 }
 
-.dbtn-primary.dbtn-rounded {
+.dbtn-primary.dbtn-rounded:not(.dbtn-outline) {
   @include roundedBtn(var(--dbtn-text-primary-main), var(--dbtn-color-primary), var(--dbtn-hover-primary), var(--dbtn-active-primary));
 }
 
 .dbtn-primary.dbtn-text {
   @include textBtn(var(--dbtn-color-primary), var(--dbtn-hover-primary), var(--dbtn-active-primary));
 }
+
 // -
 
 // - SECONDARY - //
@@ -177,13 +183,14 @@
   @include outlineBtn(var(--dbtn-color-secondary), var(--dbtn-hover-secondary));
 }
 
-.dbtn-secondary.dbtn-rounded {
+.dbtn-secondary.dbtn-rounded:not(.dbtn-outline) {
   @include roundedBtn(var(--dbtn-text-secondary-main), var(--dbtn-color-secondary), var(--dbtn-hover-secondary), var(--dbtn-active-secondary));
 }
 
 .dbtn-secondary.dbtn-text {
   @include textBtn(var(--dbtn-color-secondary), var(--dbtn-hover-secondary), var(--dbtn-active-secondary));
 }
+
 // -
 
 // -- ACCENT -- //
@@ -195,13 +202,14 @@
   @include outlineBtn(var(--dbtn-color-accent), var(--dbtn-hover-accent));
 }
 
-.dbtn-accent.dbtn-rounded {
+.dbtn-accent.dbtn-rounded:not(.dbtn-outline) {
   @include roundedBtn(var(--dbtn-text-accent-main), var(--dbtn-color-accent), var(--dbtn-hover-accent), var(--dbtn-active-accent));
 }
 
 .dbtn-accent.dbtn-text {
   @include textBtn(var(--dbtn-color-accent), var(--dbtn-hover-accent), var(--dbtn-active-accent));
 }
+
 // -
 
 // - DANGER - //
@@ -213,11 +221,12 @@
   @include outlineBtn(var(--dbtn-color-danger), var(--dbtn-hover-danger));
 }
 
-.dbtn-danger.dbtn-rounded {
+.dbtn-danger.dbtn-rounded:not(.dbtn-outline) {
   @include roundedBtn(var(--dbtn-text-danger-main), var(--dbtn-color-danger), var(--dbtn-hover-danger), var(--dbtn-active-danger));
 }
 
 .dbtn-danger.dbtn-text {
   @include textBtn(var(--dbtn-color-danger), var(--dbtn-hover-danger), var(--dbtn-active-danger));
 }
+
 // -
