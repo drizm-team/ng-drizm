@@ -1,7 +1,7 @@
 {
   "name": "@drizm/buttons",
   "description": "A buttons library for Angular",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "license": "MIT",
   "homepage": "https://github.com/drizm-team/ng-drizm/tree/master/projects/buttons",
   "repository": {
