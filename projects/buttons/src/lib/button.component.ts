@@ -15,7 +15,7 @@ import {Type, EmptyString} from '../types';
 @Component({
   selector: 'dzm-button',
   template: `
-    <button #btnEl [disabled]="disabled">
+    <button #btnEl [disabled]="disabled" [type]="type">
       <span *ngIf="content">{{content}}</span>
       <ng-content *ngIf="!content"></ng-content>
     </button>

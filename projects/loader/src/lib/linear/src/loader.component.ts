@@ -1,4 +1,4 @@
-import {ChangeDetectionStrategy, Component, Inject, Input, OnDestroy, OnInit} from '@angular/core';
+import {ChangeDetectionStrategy, ChangeDetectorRef, Component, Inject, Input, OnDestroy, OnInit} from '@angular/core';
 import {LoaderService} from './loader.service';
 import {Observable, Subscription} from 'rxjs';
 import {filter} from 'rxjs/operators';
@@ -69,6 +69,7 @@ export class LinearComponent implements OnInit, OnDestroy {
 
   constructor(private loading: LoaderService,
               private router: Router,
+              private cdr: ChangeDetectorRef,
               @Inject(LOADING_OPTIONS) private config: LoaderConfig) {
   }
 
@@ -88,8 +89,10 @@ export class LinearComponent implements OnInit, OnDestroy {
         .subscribe(event => {
           if (event instanceof NavigationStart) {
             this.loading.add();
+            this.cdr.detectChanges();
           } else {
             this.loading.subtract();
+            this.cdr.detectChanges();
           }
         });
     }
@@ -106,6 +109,7 @@ export class LinearComponent implements OnInit, OnDestroy {
       this.state = this.state === 'start'
         ? 'end'
         : 'start';
+      this.cdr.detectChanges();
     }
   }
 
